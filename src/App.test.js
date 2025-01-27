@@ -9,5 +9,5 @@ test('renders learn react link', () => {
 test('expect(8).toEqual(8)', () => {
   render(<App />);
   const linkElement = screen.getByText(/learn react/i);
-  expect(8).toEqual(8);
+  expect(8).toEqual(18);
 });
