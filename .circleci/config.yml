@@ -1,0 +1,21 @@
+version: 2.1
+jobs:
+  before_install:
+    docker:
+      - image: cimg/node:20.7.0
+    steps:
+      - checkout
+      - run:
+          command: docker build -t react-docker -f Dockerfile.dev .
+          name: Build image
+      - run:
+          command: docker run -e CI=true -it react-docker npm run test --silent -- --watchAll=false --json --passWithNoTests
+          name: Run test in image * --watchAll=false --ci --coverage *
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+workflows:
+  on_commit:
+    jobs:
+      - before_install
