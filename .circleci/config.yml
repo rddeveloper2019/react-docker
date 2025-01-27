@@ -5,6 +5,7 @@ jobs:
       - image: cimg/node:20.7.0
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           command: docker build -t react-docker -f Dockerfile.dev .
           name: Build image
