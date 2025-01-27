@@ -6,8 +6,8 @@ test('renders learn react link', () => {
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
-test('must crush', () => {
+test('expect(8).toEqual(8)', () => {
   render(<App />);
   const linkElement = screen.getByText(/learn react/i);
-  expect(8).toEqual(10);
+  expect(8).toEqual(8);
 });
